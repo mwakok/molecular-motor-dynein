@@ -1,5 +1,5 @@
 /*-----------------------------------------------------------------------------
-Script to find and store individual microtubule images with dynein motor 
+Script to find and store individual microtubule images with molecular motor 
 profile.
 
 This script requires the plugin "Ridge Detection": 
@@ -19,7 +19,7 @@ version 1.0
 	#2) Dynein channel
 */
 
-// 2) Set the width and max length of the microtubule exported view
+// 2) Set the width and max length of the microtubule exported view (in pixels)
 ExportWidth = 17;
 ExportLength = 200;
 
