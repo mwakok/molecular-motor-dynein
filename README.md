@@ -1,6 +1,6 @@
 # Simulation of molecular motor dynamics on microtubules
 
-## Work done by:¶
+## Work done by:
 Simulation code: Maurits Kok
 Experiments and theory: Louis Reese
 
