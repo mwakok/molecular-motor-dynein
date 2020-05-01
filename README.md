@@ -1,5 +1,7 @@
 # Simulation of molecular motor dynamics on microtubules
 
+Run with Python 3.7
+
 ## Work done by:
 * Simulation code: Maurits Kok
 * Experiments and theory: Louis Reese
