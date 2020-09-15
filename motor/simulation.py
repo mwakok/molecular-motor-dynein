@@ -3,9 +3,25 @@ from .calculate_propensity import propensity
 from .update_state import update_state
 
 
-# Monte Carlo simulation based on the Gillespie algorithm
 def gillespie(simPa):
-    # Extract simulation parameters
+    """ Run Gillespie algorithm to simulate motor dynamics on microtubules
+
+
+    Parameters
+    ----------
+    simPa : 
+
+    Returns
+    -------
+    lattice_cc : 
+
+    time_cc :
+
+    Notes
+    -----
+
+
+    """
     rates = [simPa.concentration*simPa.k_on,
              simPa.k_off, simPa.k_off_end, simPa.k_hop]
 
