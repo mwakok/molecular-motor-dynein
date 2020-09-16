@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def propensity(kinetic_rates, lattice_state):
+def calculate_propensity(kinetic_rates, lattice_state):
     """ Calculate the propensity for each event type
 
     Parameters
