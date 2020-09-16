@@ -1,30 +1,39 @@
 import numpy as np
 
 
-def propensity(rates, lattice):
+def propensity(kinetic_rates, lattice_state):
     """ Calculate the propensity for each event type
 
     Parameters
     ----------
-    rates : int
+    kinetic_rates : list
         kinetic rates as defined in sim_parameters.py
     lattice : numpy.ndarray
         current lattice state
 
     Returns
     ------
-    pp : numpy.ndarray
+    event_propensities : numpy.ndarray
         propensities for each event type
 
 
     """
 
-    num_event_1 = np.count_nonzero(lattice == 0)  # Empty sites
-    num_event_2 = np.count_nonzero(lattice[:-1] == 1)  # Occupied sites
-    num_event_3 = lattice[-1]  # Lattice end
-    num_event_4 = np.count_nonzero(
-        (lattice[1:] - lattice[:-1]) == -1)  # Foward hopping
-    pp = np.multiply(
-        rates, [num_event_1, num_event_2, num_event_3, num_event_4])
+    num_empty_sites = np.count_nonzero(lattice_state == 0)
+    num_occupied_sites = np.count_nonzero(lattice_state[:-1] == 1)
+    occupied_lattice_end = lattice_state[-1]
+    num_forward_hopping_sites = np.count_nonzero(
+        (lattice_state[1:] - lattice_state[:-1]) == -1
+    )
 
-    return pp
+    event_propensities = np.multiply(
+        kinetic_rates,
+        [
+            num_empty_sites,
+            num_occupied_sites,
+            occupied_lattice_end,
+            num_forward_hopping_sites,
+        ],
+    )
+
+    return event_propensities
