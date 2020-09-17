@@ -1,7 +1,7 @@
 import numpy
 
 
-def update_state(event, state):
+def update_state(seleted_event, lattice_state):
     """ Update the state of the lattice
 
     Parameters
@@ -18,20 +18,23 @@ def update_state(event, state):
 
     """
 
-    if event == 0:  # Attachment event
-        pos = numpy.nonzero(state == 0)[0]
+    if seleted_event == 0:  # Attachment event
+        pos = numpy.nonzero(lattice_state == 0)[0]
         index = numpy.random.choice(pos)
-        state[index] += 1
-    elif event == 1:  # Detachment event lattice
-        pos = numpy.nonzero(state[:-1] == 1)[0]
-        index = numpy.random.choice(pos)
-        state[index] -= 1
-    elif event == 2:  # Detachment event lattice end
-        state[-1] -= 1
-    elif event == 3:  # Forward hopping event
-        pos = numpy.nonzero((state[1:] - state[:-1]) == -1)[0]
-        index = numpy.random.choice(pos)
-        state[index] -= 1
-        state[index + 1] += 1
+        lattice_state[index] += 1
 
-    return state
+    elif seleted_event == 1:  # Detachment event lattice
+        pos = numpy.nonzero(lattice_state[:-1] == 1)[0]
+        index = numpy.random.choice(pos)
+        lattice_state[index] -= 1
+
+    elif seleted_event == 2:  # Detachment event lattice end
+        lattice_state[-1] -= 1
+
+    elif seleted_event == 3:  # Forward hopping event
+        pos = numpy.nonzero((lattice_state[1:] - lattice_state[:-1]) == -1)[0]
+        index = numpy.random.choice(pos)
+        lattice_state[index] -= 1
+        lattice_state[index + 1] += 1
+
+    return lattice_state
