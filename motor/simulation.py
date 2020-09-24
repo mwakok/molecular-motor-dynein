@@ -52,21 +52,6 @@ def gillespie(simPa):
         if selected_event is None:
             break
 
-        # # Construct valid events
-        # valid_inds = propensity_event_type > 0  # Find the possible events
-        # valid_pp = propensity_event_type[valid_inds]  # Include only valid events
-        # valid_changes = np.nonzero(valid_inds)[0]
-
-        # # Stop current simulation if no valid changes are available
-        # if len(valid_changes) == 0:
-        #     break
-
-        # selection_interval = valid_pp.cumsum()  # Construct intervals
-        # selection_interval = selection_interval / selection_interval[-1]
-        # selected_ind = np.nonzero(selection_interval > rand_nums[1][counter])[0][0]
-
-        # Update lattice configuration based on chosen interval
-        # lattice_state = update_state(valid_changes[selected_ind], lattice_state)
         lattice_state = update_state(selected_event, lattice_state)
 
         elapsed_simulation_time += dt
