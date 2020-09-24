@@ -1,10 +1,7 @@
 import matplotlib.pyplot as plt
+from matplotlib import cm
+import matplotlib.gridspec as gridspec
 import numpy as np
-
-
-
-# Plot kymographs if time-series is present, i.e. frame time > 0
-
 
 
 def plot_kymograph(RESULTS, foldername, simPa):
