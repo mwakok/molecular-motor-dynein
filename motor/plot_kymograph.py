@@ -7,7 +7,7 @@ import numpy as np
 
 
 
-def plot_kymograph(RESULTS, simPa):
+def plot_kymograph(RESULTS, foldername, simPa):
     """ 
     Plot kymographs 
 
