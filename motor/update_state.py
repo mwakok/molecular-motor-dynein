@@ -18,20 +18,20 @@ def update_state(seleted_event, lattice_state):
 
     """
 
-    if seleted_event == 0:  # Attachment event
+    if seleted_event == "attach":  # Attachment event
         pos = numpy.nonzero(lattice_state == 0)[0]
         index = numpy.random.choice(pos)
         lattice_state[index] += 1
 
-    elif seleted_event == 1:  # Detachment event lattice
+    elif seleted_event == "detach":  # Detachment event lattice
         pos = numpy.nonzero(lattice_state[:-1] == 1)[0]
         index = numpy.random.choice(pos)
         lattice_state[index] -= 1
 
-    elif seleted_event == 2:  # Detachment event lattice end
+    elif seleted_event == "detach_end":  # Detachment event lattice end
         lattice_state[-1] -= 1
 
-    elif seleted_event == 3:  # Forward hopping event
+    elif seleted_event == "forward_hop":  # Forward hopping event
         pos = numpy.nonzero((lattice_state[1:] - lattice_state[:-1]) == -1)[0]
         index = numpy.random.choice(pos)
         lattice_state[index] -= 1
