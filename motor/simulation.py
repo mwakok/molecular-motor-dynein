@@ -7,10 +7,10 @@ from .select_event import select_event
 def gillespie(simPa):
     """ Run Gillespie algorithm to simulate motor dynamics on microtubules
 
-
     Parameters
     ----------
-    simPa : 
+    simPa : parameter.ParameterSet
+        variable containing all simulation parameters
 
     Returns
     -------
