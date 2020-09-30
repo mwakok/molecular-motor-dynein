@@ -6,6 +6,8 @@ verify_ssl = true
 [dev-packages]
 pylint = "*"
 pytest-testmon = "*"
+coverage = "*"
+pytest-watch = "*"
 
 [packages]
 pandas = "*"
