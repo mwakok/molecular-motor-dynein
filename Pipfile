@@ -6,16 +6,17 @@ verify_ssl = true
 [dev-packages]
 pylint = "*"
 pytest-testmon = "*"
-coverage = "*"
 pytest-watch = "*"
 black = "*"
+pytest = "*"
+coverage = "*"
+pytest-cov = "*"
 
 [packages]
 pandas = "*"
 numpy = "*"
 matplotlib = "*"
 parameters = "*"
-pytest = "*"
 ipykernel = "*"
 
 [requires]
