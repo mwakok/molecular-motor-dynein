@@ -1,2 +1,13 @@
 # Jupyter notebook checkpoints
 .ipynb_checkpoints/
+
+# VS Code
+.vscode/
+
+# Python
+__pycache__/
+.coverage
+.pytest_cache
+.testmondata
+.coveragerc
+
