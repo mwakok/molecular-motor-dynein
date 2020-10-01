@@ -21,7 +21,6 @@ simParameters = {
     "k_off_end": 0,
     "k_hop": 0,
 }
-simPa = ParameterSet(simParameters)
 
 
 def test_gillespie_break():
@@ -48,3 +47,19 @@ def test_gillespie_max_iterations():
     [_, time] = gillespie(simPa)
     expected_time = simPa.time_max
     assert time <= expected_time
+
+
+def test_gillespie_sampling():
+    # Test time sampling
+    simPa = ParameterSet(simParameters)
+    simPa.frame_time = 1
+    [lattice, time] = gillespie(simPa)
+    expected_frames = (simPa.time_max / simPa.frame_time) + 1
+    assert len(time) == expected_frames
+    assert len(lattice) == expected_frames
+
+    simPa.frame_time = 2
+    [lattice, time] = gillespie(simPa)
+    expected_frames = simPa.time_max / simPa.frame_time
+    assert len(time) == expected_frames
+    assert len(lattice) == expected_frames
