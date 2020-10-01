@@ -5,7 +5,7 @@ from .select_event import select_event
 
 
 def gillespie(simPa):
-    """ Run Gillespie algorithm to simulate motor dynamics on microtubules
+    """Run Gillespie algorithm to simulate motor dynamics on microtubules
 
     Parameters
     ----------
@@ -44,13 +44,14 @@ def gillespie(simPa):
         # Calculate probability for all events
         propensity_event_type = calculate_propensity(kinetic_rates, lattice_state)
 
+        # Break simulation if no event are possible
+        if propensity_event_type.sum() == 0:
+            break
+
         # Draw waiting time
         dt = -np.log(rand_nums[0][counter]) / propensity_event_type.sum()
 
         selected_event = select_event(propensity_event_type, rand_nums[1][counter])
-
-        if selected_event is None:
-            break
 
         lattice_state = update_state(selected_event, lattice_state)
 
